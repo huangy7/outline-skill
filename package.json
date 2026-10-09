@@ -1,0 +1,43 @@
+{
+  "name": "outline-skill",
+  "version": "0.1.0",
+  "description": "Agent skill and CLI for organizing, formatting, and managing documentation in Outline knowledge bases",
+  "type": "module",
+  "main": "scripts/outline-client.mjs",
+  "bin": {
+    "outline-skill": "./bin/cli.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "bin",
+    "scripts",
+    "references",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node scripts/outline-client.mjs --help",
+    "setup": "node bin/cli.mjs setup"
+  },
+  "keywords": [
+    "outline",
+    "outline-wiki",
+    "agent-skill",
+    "skills",
+    "mcp",
+    "claude-code",
+    "cursor",
+    "antigravity",
+    "knowledge-base"
+  ],
+  "author": "huangy",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huangy7/outline-skill.git"
+  },
+  "homepage": "https://github.com/huangy7/outline-skill#readme",
+  "engines": {
+    "node": ">=18"
+  }
+}
