@@ -281,7 +281,8 @@ async function main() {
           console.log(`Document created successfully:`);
           console.log(`Title: ${data.title}`);
           console.log(`ID: ${data.id}`);
-          console.log(`URL: ${baseUrl}/doc/${data.urlId || data.id}`);
+          const docPath = data.url || `/doc/${data.urlId || data.id}`;
+          console.log(`URL: ${baseUrl}${docPath.startsWith('/') ? '' : '/'}${docPath}`);
         }
         break;
       }
@@ -317,7 +318,8 @@ async function main() {
           console.log(`Document updated successfully:`);
           console.log(`Title: ${data.title}`);
           console.log(`ID: ${data.id}`);
-          console.log(`URL: ${baseUrl}/doc/${data.urlId || data.id}`);
+          const docPath = data.url || `/doc/${data.urlId || data.id}`;
+          console.log(`URL: ${baseUrl}${docPath.startsWith('/') ? '' : '/'}${docPath}`);
         }
         break;
       }
