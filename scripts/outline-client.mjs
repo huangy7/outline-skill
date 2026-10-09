@@ -45,25 +45,36 @@ function loadConfig() {
   };
 }
 
-async function request(baseUrl, token, endpoint, body = {}) {
+async function request(baseUrl, token, endpoint, body = {}, retries = 2) {
   const url = `${baseUrl}/api/${endpoint}`;
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    },
-    body: JSON.stringify(body)
-  });
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(body)
+      });
 
-  const data = await response.json().catch(() => ({}));
+      const data = await response.json().catch(() => ({}));
 
-  if (!response.ok || data.ok === false) {
-    const errorMsg = data.message || data.error || `HTTP ${response.status} ${response.statusText}`;
-    throw new Error(`Outline API Error (${endpoint}): ${errorMsg}`);
+      if (!response.ok || data.ok === false) {
+        const errorMsg = data.message || data.error || `HTTP ${response.status} ${response.statusText}`;
+        throw new Error(`Outline API Error (${endpoint}): ${errorMsg}`);
+      }
+
+      return data.data;
+    } catch (err) {
+      if (attempt < retries && (err.name === 'TypeError' || err.message === 'fetch failed')) {
+        await new Promise((r) => setTimeout(r, 600));
+        continue;
+      }
+      const cause = err.cause ? ` (${err.cause.message || err.cause.code || err.cause})` : '';
+      throw new Error(`${err.message}${cause}`);
+    }
   }
-
-  return data.data;
 }
 
 function parseArgs(args) {
