@@ -18,7 +18,7 @@ Before performing operations, verify that Outline credentials are configured:
 
 If credentials are not found:
 - Ask the user for their Outline Instance URL and API Token (generated in Outline under Settings -> Account -> API Tokens).
-- Or suggest running: `npx outline-skill setup` in their terminal.
+- Or suggest running: `npx -y github:huangy7/outline-skill setup` in their terminal.
 
 To verify connectivity:
 ```bash
