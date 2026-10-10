@@ -5,7 +5,7 @@
   "type": "module",
   "main": "scripts/outline-client.mjs",
   "bin": {
-    "outline-skill": "./bin/cli.mjs"
+    "outline-skill": "bin/cli.mjs"
   },
   "files": [
     "SKILL.md",
@@ -34,7 +34,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/huangy7/outline-skill.git"
+    "url": "git+https://github.com/huangy7/outline-skill.git"
   },
   "homepage": "https://github.com/huangy7/outline-skill#readme",
   "engines": {

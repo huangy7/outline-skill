@@ -153,7 +153,7 @@ async function main() {
   if (!baseUrl || !token) {
     console.error('Error: Outline URL or API Token not found.');
     console.error('Please configure via environment variables (OUTLINE_URL, OUTLINE_API_KEY)');
-    console.error('or run: npx -y github:huangy7/outline-skill setup');
+    console.error('or run: npx outline-skill setup');
     process.exit(1);
   }
 
