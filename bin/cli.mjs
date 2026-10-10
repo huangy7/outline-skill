@@ -166,7 +166,7 @@ async function main() {
   if (command === 'setup' || command === 'install') {
     await runSetup();
   } else {
-    console.log('Usage: npx -y github:huangy7/outline-skill [setup|install]');
+    console.log('Usage: npx outline-skill [setup|install]');
   }
 }
 

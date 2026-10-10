@@ -48,10 +48,8 @@ npx skills add huangy7/outline-skill --agent gemini-cli
 Run the interactive setup wizard to configure credentials and auto-install into local agent directories:
 
 ```bash
-npx -y github:huangy7/outline-skill setup
+npx outline-skill setup
 ```
-
-> This runs the wizard straight from the GitHub repository, so it works without the package being published to npm.
 
 The wizard will prompt for:
 1. Outline Instance URL (e.g., `https://note.yourdomain.com` or `https://app.getoutline.com`)
